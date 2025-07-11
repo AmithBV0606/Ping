@@ -15,7 +15,7 @@ export default function AppOverviewSection() {
         colors={["#313131", "#313131", "#313131", "#313131", "#313131"]}
         waveWidth={100}
         backgroundFill="black"
-        blur={10}
+        blur={40}
         speed="slow"
         waveOpacity={0.5}
       >
