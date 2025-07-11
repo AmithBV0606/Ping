@@ -18,7 +18,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export default function TechnologySection() {
   return (
-    <section className="min-h-screen bg-black py-20 px-4" id="technologies">
+    <section className="min-h-screen bg-black py-20 px-4 -mt-20 md:mt-10" id="technologies">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
