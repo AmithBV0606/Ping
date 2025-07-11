@@ -24,19 +24,28 @@ export default function Navbar() {
         {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link
-            href="#"
+            href="#home"
             className="px-4 py-2 rounded-3xl text-gray-300 hover:text-white hover:bg-[#1B1F22] transition-colors"
           >
             Home
           </Link>
+
           <Link
-            href="#"
+            href="#overview"
+            className="px-4 py-2 rounded-3xl text-gray-300 hover:text-white hover:bg-[#1B1F22] transition-colors"
+          >
+            Overview
+          </Link>
+
+          <Link
+            href="#features"
             className="px-4 py-2 rounded-3xl text-gray-300 hover:text-white hover:bg-[#1B1F22] transition-colors"
           >
             Features
           </Link>
+
           <Link
-            href="#"
+            href="#footer"
             className="px-4 py-2 rounded-3xl text-gray-300 hover:text-white hover:bg-[#1B1F22] transition-colors"
           >
             Footer

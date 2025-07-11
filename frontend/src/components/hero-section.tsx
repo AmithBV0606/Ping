@@ -6,7 +6,7 @@ import CTAButton from "./cta-button";
 
 export default function HeroSection() {
   return (
-    <main className="relative">
+    <main className="relative" id="home">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <Spotlight className="left-0 top-0" />
