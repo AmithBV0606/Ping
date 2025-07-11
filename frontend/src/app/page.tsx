@@ -1,15 +1,41 @@
-import { Button } from "@/components/ui/button";
+"use client";
+
+// import { useState } from "react";
+import Navbar from "@/components/navbar";
+import HeroSection from "@/components/hero-section";
+import AppOverviewSection from "@/components/app-overview-section";
+import TechnologySection from "@/components/technology-section";
+import FooterSection from "@/components/footer-section";
+import BottomCTASection from "@/components/bottom-cta-section";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col justify-center items-center w-full h-screen gap-7">
-      <div>
-        <p className="text-2xl underline font-bold">Hello, World!!</p>
-      </div>
+  // const [email, setEmail] = useState("");
 
-      <div>
-        <Button variant={"default"}>Click Me</Button>
-      </div>
+  // const handleSubscribe = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // Handle subscription logic here
+  //   console.log("Subscribing email:", email);
+  // };
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Header */}
+      <Navbar />
+
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Wavy Background Section */}
+      <AppOverviewSection />
+
+      {/* Technologies Used section : */}
+      <TechnologySection />
+
+      {/* Bottom Call-To-Action : */}
+      <BottomCTASection />
+
+      {/* Footer */}
+      <FooterSection />
     </div>
   );
 }
