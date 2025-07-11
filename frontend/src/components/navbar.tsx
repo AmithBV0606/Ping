@@ -38,10 +38,10 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="#features"
+            href="#technologies"
             className="px-4 py-2 rounded-3xl text-gray-300 hover:text-white hover:bg-[#1B1F22] transition-colors"
           >
-            Features
+            Technology
           </Link>
 
           <Link
