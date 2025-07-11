@@ -62,7 +62,7 @@ export default function Navbar() {
           </Button>
 
           <TailwindButton>
-            <p>Start Now</p>
+            <p>Sign Up</p>
           </TailwindButton>
         </div>
       </div>
