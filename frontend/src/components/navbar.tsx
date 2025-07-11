@@ -1,12 +1,12 @@
 import React from "react";
-import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import TailwindButton from "./ui/tailwind-button";
 
 export default function Navbar() {
   return (
-    <header className="relative z-10 px-6 py-6 pt-2">
+    <header className="relative z-10 px-6 py-1 pt-1 bg-transparent">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2 cursor-pointer hover:bg-slate-950 px-2 py-4">
@@ -44,7 +44,7 @@ export default function Navbar() {
         </nav>
 
         {/* Auth Buttons */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2">
           <Button
             variant={"link"}
             className="text-gray-300 hover:text-white transition-colors cursor-pointer"
@@ -52,13 +52,9 @@ export default function Navbar() {
             Login
           </Button>
 
-          <Button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-3">
-              <p>Start Now</p>
-              <ChevronRight className="w-4 h-4" />
-            </span>
-          </Button>
+          <TailwindButton>
+            <p>Start Now</p>
+          </TailwindButton>
         </div>
       </div>
     </header>
