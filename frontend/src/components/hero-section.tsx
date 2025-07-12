@@ -3,6 +3,7 @@ import React from "react";
 import { Spotlight } from "./ui/spotlight";
 import { Button } from "./ui/button";
 import CTAButton from "./cta-button";
+import { FlipText } from "@/components/magicui/flip-text";
 
 export default function HeroSection() {
   return (
@@ -35,20 +36,24 @@ export default function HeroSection() {
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight">
               The modern{" "}
-              <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                chatting platform
-              </span>
-              .
+              {/* <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"> */}
+              <FlipText
+                className="text-5xl font-bold tracking-tight md:text-8xl md:leading-[7rem] bg-[linear-gradient(to_top,_#5f72bd_0%,_#9b23ea_100%)] text-transparent bg-clip-text inline-block"
+                duration={0.6}
+              >
+                Chatting Platform.
+              </FlipText>
+              {/* </span> */}
             </h1>
 
-            <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-12">
+            <h2 className="text-4xl md:text-5xl font-light text-gray-300 mb-12">
               Ping powers realtime conversations that scales.
             </h2>
           </div>
 
           {/* Description */}
           <div className="mb-20">
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Ping is fast, reliable and a platform for collaboration
               <br />
               Ping fuels communication without barriers or bottlenecks.
