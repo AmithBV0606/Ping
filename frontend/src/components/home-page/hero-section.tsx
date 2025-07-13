@@ -1,8 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import React from "react";
-import { Spotlight } from "../ui/spotlight";
-import { Button } from "../ui/button";
-import CTAButton from "./cta-button";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Button } from "@/components/ui/button";
+import CTAButton from "@/components/home-page/cta-button";
 import { FlipText } from "@/components/magicui/flip-text";
 
 export default function HeroSection() {
@@ -34,11 +34,11 @@ export default function HeroSection() {
 
           {/* Main Heading */}
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-400">
               The modern{" "}
               {/* <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"> */}
               <FlipText
-                className="text-5xl font-bold tracking-tight md:text-8xl md:leading-[7rem] bg-[linear-gradient(to_top,_#5f72bd_0%,_#9b23ea_100%)] text-transparent bg-clip-text inline-block"
+                className="text-5xl font-extrabold tracking-tight md:text-8xl md:leading-[7rem] bg-[linear-gradient(to_top,_#5f72bd_0%,_#9b23ea_100%)] text-transparent bg-clip-text inline-block"
                 duration={0.6}
               >
                 Chatting Platform.
@@ -46,7 +46,7 @@ export default function HeroSection() {
               {/* </span> */}
             </h1>
 
-            <h2 className="text-4xl md:text-5xl font-light text-gray-300 mb-12">
+            <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-12">
               Ping powers realtime conversations that scales.
             </h2>
           </div>
