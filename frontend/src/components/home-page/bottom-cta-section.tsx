@@ -1,5 +1,5 @@
 import React from "react";
-import { TextHoverEffect } from "./ui/text-hover-effect";
+import { TextHoverEffect } from "../ui/text-hover-effect";
 
 export default function BottomCTASection() {
   return (

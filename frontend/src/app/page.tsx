@@ -1,12 +1,12 @@
 "use client";
 
 // import { useState } from "react";
-import Navbar from "@/components/navbar";
-import HeroSection from "@/components/hero-section";
-import AppOverviewSection from "@/components/app-overview-section";
-import TechnologySection from "@/components/technology-section";
-import FooterSection from "@/components/footer-section";
-import BottomCTASection from "@/components/bottom-cta-section";
+import Navbar from "@/components/home-page/navbar";
+import HeroSection from "@/components/home-page/hero-section";
+import AppOverviewSection from "@/components/home-page/app-overview-section";
+import TechnologySection from "@/components/home-page/technology-section";
+import FooterSection from "@/components/home-page/footer-section";
+import BottomCTASection from "@/components/home-page/bottom-cta-section";
 
 export default function Home() {
   // const [email, setEmail] = useState("");

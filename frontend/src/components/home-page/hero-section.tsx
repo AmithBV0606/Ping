@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import React from "react";
-import { Spotlight } from "./ui/spotlight";
-import { Button } from "./ui/button";
+import { Spotlight } from "../ui/spotlight";
+import { Button } from "../ui/button";
 import CTAButton from "./cta-button";
 import { FlipText } from "@/components/magicui/flip-text";
 
