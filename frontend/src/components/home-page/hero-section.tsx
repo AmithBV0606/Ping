@@ -38,7 +38,7 @@ export default function HeroSection() {
               The modern{" "}
               {/* <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"> */}
               <FlipText
-                className="text-5xl font-extrabold tracking-tight md:text-8xl md:leading-[7rem] bg-[linear-gradient(to_top,_#5f72bd_0%,_#9b23ea_100%)] text-transparent bg-clip-text inline-block"
+                className="text-4xl font-extrabold tracking-tight md:text-8xl md:leading-[7rem] bg-[linear-gradient(to_top,_#5f72bd_0%,_#9b23ea_100%)] text-transparent bg-clip-text inline-block"
                 duration={0.6}
               >
                 Chatting Platform.
