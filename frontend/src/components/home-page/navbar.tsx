@@ -3,22 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import TailwindButton from "../ui/tailwind-button";
-import { CustomUser } from "@/types";
-import AuthButton from "../general-ui/auth-button";
 
-export default function Navbar({ user }: { user?: CustomUser }) {
+export default function Navbar() {
   return (
     <header className="relative z-10 px-6 py-1 pt-1 bg-transparent">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2 cursor-pointer hover:bg-slate-950 px-2 py-4">
-          <Image
-            // src={"/Ping-Logo-Light.png"}
-            src={"/New-Logo.png"}
-            alt="Ping-Logo"
-            height={30}
-            width={30}
-          />
+          <Image src={"/New-Logo.png"} alt="Ping-Logo" height={30} width={30} />
 
           <span className="text-2xl font-semibold">Ping</span>
         </div>
@@ -56,20 +48,14 @@ export default function Navbar({ user }: { user?: CustomUser }) {
 
         {/* Auth Buttons */}
         <div className="flex items-center space-x-2">
-          {!user ? (
-            <>
-              <Button
-                variant={"link"}
-                className="text-gray-300 hover:text-white transition-colors cursor-pointer"
-              >
-                Login
-              </Button>
+          <Button
+            variant={"link"}
+            className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
+            Login
+          </Button>
 
-              <TailwindButton>Sign Up</TailwindButton>
-            </>
-          ) : (
-            <AuthButton text={"Dashboard"} image={false} />
-          )}
+          <TailwindButton>Sign Up</TailwindButton>
         </div>
       </div>
     </header>
