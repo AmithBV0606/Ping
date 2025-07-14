@@ -48,14 +48,18 @@ export default function Navbar() {
 
         {/* Auth Buttons */}
         <div className="flex items-center space-x-2">
-          <Button
-            variant={"link"}
-            className="text-gray-300 hover:text-white transition-colors cursor-pointer"
-          >
-            Login
-          </Button>
+          <Link href={"/sign-in"}>
+            <Button
+              variant={"link"}
+              className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+            >
+              Login
+            </Button>
+          </Link>
 
-          <TailwindButton>Sign Up</TailwindButton>
+          <Link href={"/sign-up"}>
+            <TailwindButton>Sign Up</TailwindButton>
+          </Link>
         </div>
       </div>
     </header>

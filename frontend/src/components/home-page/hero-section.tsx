@@ -4,6 +4,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/button";
 import CTAButton from "@/components/home-page/cta-button";
 import { FlipText } from "@/components/magicui/flip-text";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -61,7 +62,9 @@ export default function HeroSection() {
           </div>
 
           {/* CTA Button */}
-          <CTAButton />
+          <Link href={"/sign-up"}>
+            <CTAButton />
+          </Link>
         </div>
       </div>
     </main>
