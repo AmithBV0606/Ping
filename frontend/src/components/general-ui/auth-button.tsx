@@ -2,18 +2,20 @@ import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
-const AuthButton = ({ text }: { text: string }) => {
+const AuthButton = ({ text, image }: { text: string; image?: boolean }) => {
   return (
     <StyledWrapper>
       <button className="Btn-Container">
         <span className="text">
-          <Image
-            src="/google.png"
-            className=" mr-4"
-            width={25}
-            height={25}
-            alt="google"
-          />
+          {image && (
+            <Image
+              src="/google.png"
+              className=" mr-4"
+              width={25}
+              height={25}
+              alt="google"
+            />
+          )}
           <span>{text}</span>
         </span>
 
@@ -47,7 +49,7 @@ const StyledWrapper = styled.div`
     display: flex;
     width: 310px;
     height: fit-content;
-    background-color: #192024;
+    background-color: #141414;
     border-radius: 40px;
     justify-content: space-between;
     align-items: center;
