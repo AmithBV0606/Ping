@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import SessionProvider from "@/context/SessionProvider";
 
 const roboto = Roboto({
   weight: "400",
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <body className={`${roboto.className} antialiased`}>{children}</body>
+      <SessionProvider>
+        <body className={`${roboto.className} antialiased`}>{children}</body>
+      </SessionProvider>
     </html>
   );
 }
