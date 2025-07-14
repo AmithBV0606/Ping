@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import TailwindButton from "../ui/tailwind-button";
+import { CustomUser } from "@/types";
+import AuthButton from "../general-ui/auth-button";
 
-export default function Navbar() {
+export default function Navbar({ user }: { user?: CustomUser }) {
   return (
     <header className="relative z-10 px-6 py-1 pt-1 bg-transparent">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -54,16 +56,20 @@ export default function Navbar() {
 
         {/* Auth Buttons */}
         <div className="flex items-center space-x-2">
-          <Button
-            variant={"link"}
-            className="text-gray-300 hover:text-white transition-colors cursor-pointer"
-          >
-            Login
-          </Button>
+          {!user ? (
+            <>
+              <Button
+                variant={"link"}
+                className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+              >
+                Login
+              </Button>
 
-          <TailwindButton>
-            <p>Sign Up</p>
-          </TailwindButton>
+              <TailwindButton>Sign Up</TailwindButton>
+            </>
+          ) : (
+            <AuthButton text={"Dashboard"} image={false} />
+          )}
         </div>
       </div>
     </header>
