@@ -8,11 +8,13 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-//   SidebarRail,
 } from "@/components/ui/sidebar";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
 import Image from "next/image";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
+import { CustomSession } from "@/types";
 
 // This is sample data.
 const data = {
@@ -32,7 +34,11 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export async function AppSidebar({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) {
+  const session: CustomSession | null = await getServerSession(authOptions);
+
   return (
     <Sidebar variant="floating" {...props}>
       <SidebarHeader>
@@ -77,9 +83,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter>
         <NavUser
           user={{
-            name: "Amith",
-            email: "amithrao0606@gmail.com",
-            avatar: "https://github.com/shadcn.png",
+            name: session?.user?.name as string,
+            email: session?.user?.email as string,
+            avatar: session?.user?.image ?? undefined,
           }}
         />
       </SidebarFooter>
