@@ -8,7 +8,10 @@ import { ArrowLeft } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 export default function NotFound() {
-  const { status } = useSession();
+  const { data, status } = useSession();
+
+  console.log(status);
+  console.log(data);
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
@@ -40,7 +43,7 @@ export default function NotFound() {
           className="flex items-center gap-2 cursor-pointer"
         >
           <ArrowLeft />
-          <span>Back to Home</span>
+          <span>Back to {status === "authenticated" ? "Dashboard" : "Home"}</span>
         </Button>
       </Link>
     </div>
