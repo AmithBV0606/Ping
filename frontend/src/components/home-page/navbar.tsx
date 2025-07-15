@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-2">
           <Link href={"/sign-in"}>
             <Button
-              variant={"link"}
+              variant={"ghost"}
               className="text-gray-300 hover:text-white transition-colors cursor-pointer"
             >
               Login
