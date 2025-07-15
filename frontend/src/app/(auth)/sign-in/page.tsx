@@ -12,8 +12,16 @@ import { MagicCard } from "@/components/magicui/magic-card";
 import Image from "next/image";
 import AuthButton from "@/components/general-ui/auth-button";
 import { Spotlight } from "@/components/ui/spotlight";
+import { signIn } from "next-auth/react";
 
 export default function SignInPage() {
+  const handleLogin = () => {
+    signIn("google", {
+      callbackUrl: "/dashboard",
+      redirect: true,
+    });
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen relative">
       <div className="absolute inset-0 overflow-hidden">
@@ -42,7 +50,7 @@ export default function SignInPage() {
           </div>
 
           <CardHeader className="border-b border-border p-4 [.border-b]:pb-4 flex flex-col gap-2 items-center">
-            <CardTitle className="text-2xl">Welcome back to Ping</CardTitle>
+            <CardTitle className="text-2xl">Welcome back</CardTitle>
 
             <CardDescription className="text-sm text-gray-500">
               A modern chatting application.
@@ -57,7 +65,11 @@ export default function SignInPage() {
           </CardContent>
 
           <CardFooter className="p-3">
-            <AuthButton text="Sign In with Google" image={true} />
+            <AuthButton
+              text="Sign In with Google"
+              image={true}
+              onClick={handleLogin}
+            />
           </CardFooter>
         </MagicCard>
       </Card>

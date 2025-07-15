@@ -2,10 +2,10 @@ import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
-const AuthButton = ({ text, image }: { text: string; image?: boolean }) => {
+const AuthButton = ({ text, image, onClick }: { text: string; image?: boolean; onClick?: () => void }) => {
   return (
     <StyledWrapper>
-      <button className="Btn-Container">
+      <button className="Btn-Container" onClick={onClick}>
         <span className="text">
           {image && (
             <Image
