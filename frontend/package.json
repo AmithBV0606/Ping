@@ -24,9 +24,11 @@
     "motion": "^12.23.3",
     "next": "15.3.5",
     "next-auth": "^4.24.11",
+    "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "simplex-noise": "^4.0.3",
+    "sonner": "^2.0.6",
     "styled-components": "^6.1.19",
     "tailwind-merge": "^3.3.1"
   },
