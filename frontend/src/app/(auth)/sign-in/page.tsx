@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { MagicCard } from "@/components/magicui/magic-card";
 import Image from "next/image";
-import AuthButton from "@/components/general-ui/auth-button";
+import AuthButton from "@/components/home-page/auth-button";
 import { Spotlight } from "@/components/ui/spotlight";
 import { signIn } from "next-auth/react";
 

@@ -10,17 +10,17 @@ import {
 } from "@/components/ui/card";
 import { MagicCard } from "@/components/magicui/magic-card";
 import Image from "next/image";
-import AuthButton from "@/components/general-ui/auth-button";
+import AuthButton from "@/components/home-page/auth-button";
 import { Spotlight } from "@/components/ui/spotlight";
 import { signIn } from "next-auth/react";
 
 export default function SignUpPage() {
-    const handleSignUp = () => {
-      signIn("google", {
-        callbackUrl: "/dashboard",
-        redirect: true,
-      });
-    };
+  const handleSignUp = () => {
+    signIn("google", {
+      callbackUrl: "/dashboard",
+      redirect: true,
+    });
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen relative">
@@ -65,7 +65,11 @@ export default function SignUpPage() {
           </CardContent>
 
           <CardFooter className="p-3">
-            <AuthButton text="Sign Up with Google" image={true} onClick={handleSignUp} />
+            <AuthButton
+              text="Sign Up with Google"
+              image={true}
+              onClick={handleSignUp}
+            />
           </CardFooter>
         </MagicCard>
       </Card>
