@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import FuzzyText from "@/components/general-ui/fuzzy-text";
+import FuzzyText from "@/components/home-page/fuzzy-text";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
