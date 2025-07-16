@@ -20,7 +20,7 @@ import {
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
-const LogoutModal = dynamic(() => import("../general-ui/logout-modal"));
+const LogoutModal = dynamic(() => import("./logout-modal"));
 
 export function NavUser({
   user,
