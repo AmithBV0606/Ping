@@ -96,3 +96,25 @@ export async function Update(request: Request, response: Response) {
       .json({ message: "Something went wrong. Please try again later!!" });
   }
 }
+
+// To delete a specific chat group :
+export async function Delete(request: Request, response: Response) {
+  try {
+    const { id } = request.params;
+
+    const aSpecificDeletedGroup = await prismaClient.chatGroup.delete({
+      where: {
+        id: id,
+      },
+    });
+
+    return response.json({
+      message: "The requested Chat Group has been deleted successfully!",
+      id: aSpecificDeletedGroup.id,
+    });
+  } catch (error) {
+    return response
+      .status(500)
+      .json({ message: "Something went wrong. Please try again later!!" });
+  }
+}
