@@ -69,3 +69,30 @@ export async function Show(request: Request, response: Response) {
       .json({ message: "Something went wrong. Please try again later!!" });
   }
 }
+
+// To Update a particular chat group's info :
+export async function Update(request: Request, response: Response) {
+  try {
+    const body = request.body;
+    const { id } = request.params;
+
+    const aSpecificUpdatedGroup = await prismaClient.chatGroup.update({
+      where: {
+        id: id,
+      },
+      data: {
+        title: body.title,
+        passcode: body.passcode,
+      },
+    });
+
+    return response.json({
+      message: "The requested Chat Group has been updated successfully!",
+      data: aSpecificUpdatedGroup,
+    });
+  } catch (error) {
+    return response
+      .status(500)
+      .json({ message: "Something went wrong. Please try again later!!" });
+  }
+}
