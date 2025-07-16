@@ -38,8 +38,30 @@ export async function Index(request: Request, response: Response) {
     });
 
     return response.json({
-      message: "Chat Group fetched successfully!",
+      message: "All Chat Groups fetched successfully!",
       data: allGroups,
+    });
+  } catch (error) {
+    return response
+      .status(500)
+      .json({ message: "Something went wrong. Please try again later!!" });
+  }
+}
+
+// To get a particular chat group's info(id of chat group is needed) :
+export async function Show(request: Request, response: Response) {
+  try {
+    const { id } = request.params;
+
+    const aSpecificGroup = await prismaClient.chatGroup.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    return response.json({
+      message: "The requested Chat Group has been fetched successfully!",
+      data: aSpecificGroup,
     });
   } catch (error) {
     return response

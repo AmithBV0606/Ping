@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { login } from "../controllers/AuthController";
 import middleware from "../middlewares/middleware";
-import { Store } from "../controllers/ChatGroupController";
+import { Index, Show, Store } from "../controllers/ChatGroupController";
 
 const router = Router();
 
@@ -10,5 +10,7 @@ router.post("/auth/login", login);
 
 // Chat Group routes :
 router.post("/chat-group", middleware, Store);
+router.get("/chat-group", middleware, Index);
+router.get("/chat-group/:id", middleware, Show)
 
 export default router;
