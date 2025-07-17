@@ -64,3 +64,43 @@ export const authOptions: AuthOptions = {
     },
   },
 };
+
+// ✅ Q1: Is the "user" already present in the "token" inside the jwt callback?
+
+/*
+Answer: 
+
+- No, the "user" is not automatically present in the "token" object by default.
+
+- The "user" argument is only populated the first time the jwt callback runs — i.e., right after the user signs in (from the signIn callback).
+
+- On subsequent requests, "user" is undefined, and only "token" is available.
+
+- So you must manually store "user" data inside "token.user" so it can persist across sessions.
+*/
+
+// ✅ Q2: Is the user from the signIn callback the same as the one passed to the jwt callback?
+
+/*
+Answer: 
+
+- Yes, but only during the initial sign-in request.
+
+- During the initial sign-in, the flow is:
+
+    1. signIn() callback runs (Google returns a user + account)
+
+    2. Then, jwt() callback runs with that user
+
+    3. Then, session() callback runs with token.user
+
+- So yes — during sign-in, the user from signIn is passed down to the jwt callback, and you're correctly using that opportunity to enrich the token.
+
+But again, on subsequent requests:
+
+    1. signIn doesn’t run.
+
+    2. jwt({ user }) receives user as undefined.
+
+    3. Only token persists between requests.
+*/
