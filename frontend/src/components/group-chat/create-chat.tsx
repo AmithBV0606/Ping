@@ -17,6 +17,7 @@ import { Input } from "../ui/input";
 import axios, { AxiosError } from "axios";
 import { toast } from "sonner";
 import { CHAT_GROUP_URL } from "@/lib/apiEndPoints";
+import { ClearCache } from "@/actions/clear-cache";
 
 export default function CreateChat({ user }: { user: CustomUser | undefined }) {
   const [open, setOpen] = useState(false);
@@ -47,6 +48,7 @@ export default function CreateChat({ user }: { user: CustomUser | undefined }) {
         setLoading(false);
         setOpen(false);
         toast.success(data?.message);
+        ClearCache("dashboard");
       }
     } catch (error) {
       setLoading(false);
