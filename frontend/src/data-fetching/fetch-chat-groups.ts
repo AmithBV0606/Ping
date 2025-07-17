@@ -6,7 +6,7 @@ export async function fetchChatGroups(token: string) {
       Authorization: token,
     },
     next: {
-      revalidate: 60 * 60,
+      revalidate: 0,
       tags: ["dashboard"],
     },
   });
