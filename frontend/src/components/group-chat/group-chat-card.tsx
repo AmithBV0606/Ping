@@ -14,8 +14,7 @@ export default function GroupChatCard({
     <Card className="h-52">
       <CardHeader className="flex justify-between items-center ">
         <CardTitle className="text-lg lg:text-2xl">{group.title}</CardTitle>
-        {/* <GroupChatCardMenu user={user} group={group} /> */}
-        <GroupChatCardMenu />
+        <GroupChatCardMenu user={user} group={group} />
       </CardHeader>
 
       <CardContent className="mt-4">
