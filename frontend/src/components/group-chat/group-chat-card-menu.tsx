@@ -11,6 +11,8 @@ import { EllipsisVertical } from "lucide-react";
 import DeleteChatGroup from "./delete-chat-group";
 import { CustomUser, GroupChatType } from "@/types";
 import EditChatGroup from "./edit-chat-group";
+import Env from "@/lib/env";
+import { toast } from "sonner";
 
 export default function GroupChatCardMenu({
   group,
@@ -21,6 +23,11 @@ export default function GroupChatCardMenu({
 }) {
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [editDialog, setEditDialog] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard?.writeText(`${Env.APP_URL}/chat/${group.id}`);
+    toast.success("Link copied to your clipboard.");
+  };
 
   return (
     <div>
@@ -52,7 +59,9 @@ export default function GroupChatCardMenu({
         </DropdownMenuTrigger>
 
         <DropdownMenuContent>
-          <DropdownMenuItem className="cursor-pointer">Copy</DropdownMenuItem>
+          <DropdownMenuItem className="cursor-pointer" onClick={handleCopy}>
+            Copy
+          </DropdownMenuItem>
 
           <DropdownMenuItem
             className="cursor-pointer"
