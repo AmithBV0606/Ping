@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import router from "./routes/routes";
 import { Server } from "socket.io";
 import { createServer } from "http";
+import { setupSocket } from "./socket";
 
 dotenv.config();
 
@@ -30,6 +31,8 @@ const io = new Server(server, {
     origin: "*",
   },
 });
+
+setupSocket(io);
 export { io };
 
 server.listen(PORT, () => {
