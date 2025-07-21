@@ -10,7 +10,7 @@ export function setupSocket(io: Server) {
     // To receive the data coming from the client side :
     socket.on("message", (data) => {
       console.log("Server side message : ", data);
-      socket.emit("message", data);
+      socket.broadcast.emit("message", data);
     });
 
     // Defining what happens when the socket is disconnected :
