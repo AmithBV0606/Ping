@@ -1,4 +1,7 @@
 import ChatBase from "@/components/chats/chat-base";
+import { fetchChatGroup } from "@/data-fetching/fetch-chat-groups";
+import { GroupChatType } from "@/types";
+import { notFound } from "next/navigation";
 import React from "react";
 
 export default async function ChatsPage({
@@ -7,6 +10,16 @@ export default async function ChatsPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+
+  if (id.length !== 36) {
+    return notFound();
+  }
+
+  const group: GroupChatType = await fetchChatGroup(id);
+
+  if (group === null) {
+    return notFound();
+  }
 
   return (
     <div>
