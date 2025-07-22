@@ -23,3 +23,21 @@ export async function fetchChatGroups(token: string) {
 
   return [];
 }
+
+export async function fetchChatGroup(id: string) {
+  const res = await fetch(`${CHAT_GROUP_URL}/${id}`, {
+    cache: "no-cache",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch chat group's data!!");
+  }
+
+  const result = await res.json();
+
+  if (result?.data) {
+    return result?.data;
+  }
+
+  return null;
+}
