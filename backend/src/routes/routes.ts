@@ -17,7 +17,7 @@ router.post("/auth/login", login);
 // Chat Group routes :
 router.post("/chat-group", middleware, Store);
 router.get("/chat-group", middleware, Index);
-router.get("/chat-group/:id", middleware, Show);
+router.get("/chat-group/:id", Show);
 router.put("/chat-group/:id", middleware, Update);
 router.delete("/chat-group/:id", middleware, Delete);
 
