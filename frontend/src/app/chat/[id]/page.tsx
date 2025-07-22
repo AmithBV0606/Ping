@@ -12,7 +12,7 @@ export default async function ChatsPage({
     <div>
       <h1>Hello I am chat!!</h1>
       <p className="text-2xl">ID : {id}</p>
-      <ChatBase />
+      <ChatBase groupId={id} />
     </div>
   );
 }
