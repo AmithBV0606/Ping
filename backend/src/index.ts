@@ -5,6 +5,8 @@ import router from "./routes/routes";
 import { Server } from "socket.io";
 import { createServer } from "http";
 import { setupSocket } from "./socket";
+import { createAdapter } from "@socket.io/redis-streams-adapter";
+import redis from "./config/redis.config";
 
 dotenv.config();
 
@@ -30,6 +32,7 @@ const io = new Server(server, {
   cors: {
     origin: "*",
   },
+  adapter: createAdapter(redis),
 });
 
 setupSocket(io);
