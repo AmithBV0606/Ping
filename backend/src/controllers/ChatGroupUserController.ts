@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import prismaClient from "../config/db.config";
 import { GroupUsersType } from "../types";
 
-export async function Index(request: Request, response: Response) {
+export async function IndexUsers(request: Request, response: Response) {
   try {
     const { group_id } = request.query;
 
@@ -23,7 +23,7 @@ export async function Index(request: Request, response: Response) {
   }
 }
 
-export async function Store(request: Request, response: Response) {
+export async function StoreUsers(request: Request, response: Response) {
   try {
     const body: GroupUsersType = request.body;
 
