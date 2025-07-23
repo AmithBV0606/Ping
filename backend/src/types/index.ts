@@ -11,3 +11,8 @@ export interface LoginPayloadType {
 export interface CustomSocket extends Socket {
   room?: string;
 }
+
+export interface GroupUsersType {
+  group_id: string;
+  name: string;
+}
