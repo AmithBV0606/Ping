@@ -32,3 +32,11 @@ export type GroupChatUsersType = {
   name: string;
   created_at: string;
 };
+
+export type MessageType = {
+  id: string;
+  group_id: string;
+  name: string;
+  messgae: string;
+  created_at: string;
+};
