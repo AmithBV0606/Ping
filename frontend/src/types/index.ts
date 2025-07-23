@@ -25,3 +25,10 @@ export type GroupChatType = {
   passcode: string;
   created_at: string;
 };
+
+export type GroupChatUsersType = {
+  id: number;
+  group_id: string;
+  name: string;
+  created_at: string;
+};
