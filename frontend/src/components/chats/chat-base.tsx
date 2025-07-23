@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar";
 import { Separator } from "../ui/separator";
 import { GroupChatType, GroupChatUsersType } from "@/types";
 import { ChatSidebar } from "./chat-sidebar";
+import ChatUserDialog from "./chat-user-dialog";
 
 export default function ChatBase({
   group,
@@ -34,6 +35,7 @@ export default function ChatBase({
   // const handleClick = () => {
   //   socket.emit("message", { name: "Amith", id: uuidv4() });
   // };
+  const [open, setOpen] = useState(true);
 
   return (
     <SidebarProvider
@@ -43,6 +45,8 @@ export default function ChatBase({
         } as React.CSSProperties
       }
     >
+      {open && <ChatUserDialog open={open} setOpen={setOpen} group={group} />}
+
       <ChatSidebar users={users} />
 
       <SidebarInset>
