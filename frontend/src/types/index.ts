@@ -37,6 +37,6 @@ export type MessageType = {
   id: string;
   group_id: string;
   name: string;
-  messgae: string;
+  message: string;
   created_at: string;
 };
