@@ -1,36 +1,68 @@
 "use client";
 
-import { getSocket } from "@/lib/socket.config";
-import React, { useEffect, useMemo } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { Button } from "../ui/button";
+import React from "react";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import { Separator } from "../ui/separator";
+import { GroupChatType, GroupChatUsersType } from "@/types";
+import { ChatSidebar } from "./chat-sidebar";
 
-export default function ChatBase({ groupId }: { groupId: string }) {
-  let socket = useMemo(() => {
-    const socket = getSocket();
-    socket.auth = {
-      room: groupId,
-    };
-    return socket.connect();
-  }, []);
+export default function ChatBase({
+  group,
+  users,
+}: {
+  group: GroupChatType;
+  users: Array<GroupChatUsersType> | [];
+}) {
+  // let socket = useMemo(() => {
+  //   const socket = getSocket();
+  //   socket.auth = {
+  //     room: groupId,
+  //   };
+  //   return socket.connect();
+  // }, []);
 
-  useEffect(() => {
-    socket.on("message", (data: any) => {
-      console.log("The socket message is, ", data);
-    });
+  // useEffect(() => {
+  //   socket.on("message", (data: any) => {
+  //     console.log("The socket message is, ", data);
+  //   });
 
-    return () => {
-      socket.close();
-    };
-  }, []);
+  //   return () => {
+  //     socket.close();
+  //   };
+  // }, []);
 
-  const handleClick = () => {
-    socket.emit("message", { name: "Amith", id: uuidv4() });
-  };
+  // const handleClick = () => {
+  //   socket.emit("message", { name: "Amith", id: uuidv4() });
+  // };
 
   return (
-    <div>
-      <Button onClick={handleClick}>Send Message</Button>
-    </div>
+    <SidebarProvider
+      style={
+        {
+          "--sidebar-width": "19rem",
+        } as React.CSSProperties
+      }
+    >
+      <ChatSidebar users={users} />
+
+      <SidebarInset>
+        {/* Chat header : */}
+        <header className="flex h-14 shrink-0 items-center gap-2 px-4">
+          <SidebarTrigger className="-ml-1 cursor-pointer" />
+
+          <Separator
+            orientation="vertical"
+            className="mr-2 data-[orientation=vertical]:h-4"
+          />
+
+          <div className="mr-1 text-2xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-600 text-transparent bg-clip-text">
+            {/* <CreateChat user={session?.user} /> */}
+            {group.title}
+          </div>
+        </header>
+
+        {/* Chat UI : */}
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

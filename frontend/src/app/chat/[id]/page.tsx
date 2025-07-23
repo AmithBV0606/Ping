@@ -1,6 +1,9 @@
 import ChatBase from "@/components/chats/chat-base";
-import { fetchChatGroup } from "@/data-fetching/fetch-chat-groups";
-import { GroupChatType } from "@/types";
+import {
+  fetchChatGroup,
+  fetchChatGroupUsers,
+} from "@/data-fetching/fetch-chat-groups";
+import { GroupChatType, GroupChatUsersType } from "@/types";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -15,17 +18,14 @@ export default async function ChatsPage({
     return notFound();
   }
 
-  const group: GroupChatType = await fetchChatGroup(id);
+  const chatGroup: GroupChatType = await fetchChatGroup(id);
 
-  if (group === null) {
+  if (chatGroup === null) {
     return notFound();
   }
 
-  return (
-    <div>
-      <h1>Hello I am chat!!</h1>
-      <p className="text-2xl">ID : {id}</p>
-      <ChatBase groupId={id} />
-    </div>
-  );
+  const chatGroupUsers: Array<GroupChatUsersType> | [] =
+    await fetchChatGroupUsers(id);
+
+  return <ChatBase group={chatGroup} users={chatGroupUsers} />;
 }
