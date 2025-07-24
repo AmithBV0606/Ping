@@ -3,7 +3,8 @@ import {
   fetchChatGroup,
   fetchChatGroupUsers,
 } from "@/data-fetching/fetch-chat-groups";
-import { GroupChatType, GroupChatUsersType } from "@/types";
+import { fetchChats } from "@/data-fetching/fetch-chats";
+import { GroupChatType, GroupChatUsersType, MessageType } from "@/types";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -27,5 +28,7 @@ export default async function ChatsPage({
   const chatGroupUsers: Array<GroupChatUsersType> | [] =
     await fetchChatGroupUsers(id);
 
-  return <ChatBase group={chatGroup} users={chatGroupUsers} />;
+  const chats: Array<MessageType> | [] = await fetchChats(id);
+
+  return <ChatBase group={chatGroup} users={chatGroupUsers} oldMessages={chats} />;
 }
