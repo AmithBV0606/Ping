@@ -2,7 +2,7 @@
 
 import { Server } from "socket.io";
 import { CustomSocket } from "./types";
-import prismaClient from "./config/db.config";
+import { qstashClient } from "./config/qstash.config";
 
 export function setupSocket(io: Server) {
   // Middlewares :
@@ -29,8 +29,16 @@ export function setupSocket(io: Server) {
       console.log("Server side message : ", data);
 
       // Store the messages in DB :
-      await prismaClient.chats.create({
-        data: data,
+      // await prismaClient.chats.create({
+      //   data: data,
+      // });
+
+      // Send the message to the queue :
+      const queue = await qstashClient.publishJSON({
+        // url: "http://localhost:4000/api/chats",
+        url: "https://c0ef80a2e8c3.ngrok-free.app/api/chats",
+        method: "POST",
+        body: data,
       });
 
       // socket.broadcast.emit("message", data);
