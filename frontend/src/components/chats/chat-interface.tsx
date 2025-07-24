@@ -76,13 +76,19 @@ export default function ChatInterface({
           {messages?.map((message) => (
             <div
               key={message.id}
-              className={`max-w-sm rounded-lg p-2 ${
+              className={`max-w-sm rounded-lg flex flex-col p-2 ${
                 message.name === chatUser?.name
                   ? "bg-gradient-to-r from-blue-400 to-blue-600 text-white self-end"
                   : "bg-gradient-to-r from-gray-300 to-gray-300 text-black self-start"
               }`}
             >
-              {message.message}
+              {message.name !== chatUser?.name && (
+                <span className={`text-[10px] font-light text-gray-700`}>
+                  {message.name}
+                </span>
+              )}
+
+              <span className="font-medium">{message.message}</span>
             </div>
           ))}
         </div>
