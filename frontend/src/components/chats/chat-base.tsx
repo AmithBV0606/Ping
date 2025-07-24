@@ -1,41 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar";
 import { Separator } from "../ui/separator";
-import { GroupChatType, GroupChatUsersType } from "@/types";
+import { GroupChatType, GroupChatUsersType, MessageType } from "@/types";
 import { ChatSidebar } from "./chat-sidebar";
 import ChatUserDialog from "./chat-user-dialog";
+import ChatInterface from "./chat-interface";
 
 export default function ChatBase({
   group,
   users,
+  oldMessages
 }: {
   group: GroupChatType;
   users: Array<GroupChatUsersType> | [];
+  oldMessages: Array<MessageType> | [];
 }) {
-  // let socket = useMemo(() => {
-  //   const socket = getSocket();
-  //   socket.auth = {
-  //     room: groupId,
-  //   };
-  //   return socket.connect();
-  // }, []);
-
-  // useEffect(() => {
-  //   socket.on("message", (data: any) => {
-  //     console.log("The socket message is, ", data);
-  //   });
-
-  //   return () => {
-  //     socket.close();
-  //   };
-  // }, []);
-
-  // const handleClick = () => {
-  //   socket.emit("message", { name: "Amith", id: uuidv4() });
-  // };
   const [open, setOpen] = useState(true);
+  const [chatUser, setChatUser] = useState<GroupChatUsersType>();
+
+  useEffect(() => {
+    const localData = localStorage.getItem(group.id);
+    if (localData) {
+      const data = JSON.parse(localData);
+      setChatUser(data);
+    }
+  }, [group.id]);
 
   return (
     <SidebarProvider
@@ -67,7 +58,9 @@ export default function ChatBase({
 
         {/* Chat UI : */}
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="bg-muted/60 min-h-[100vh] flex-1 rounded-xl md:min-h-min"></div>
+          <div className="bg-muted/60 min-h-[100vh] flex-1 rounded-xl md:min-h-min">
+            <ChatInterface group={group} chatUser={chatUser} oldMessages={oldMessages} />
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>
