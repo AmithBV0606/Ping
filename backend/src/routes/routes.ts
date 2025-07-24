@@ -9,6 +9,7 @@ import {
   Update,
 } from "../controllers/ChatGroupController";
 import { IndexUsers, StoreUsers } from "../controllers/ChatGroupUserController";
+import { ChatsIndex } from "../controllers/ChatsController";
 
 const router = Router();
 
@@ -22,8 +23,11 @@ router.get("/chat-group/:id", Show);
 router.put("/chat-group/:id", middleware, Update);
 router.delete("/chat-group/:id", middleware, Delete);
 
-// Chat group users :
+// Chat group users routes :
 router.get("/chat-group-users", IndexUsers);
 router.post("/chat-group-users", StoreUsers);
+
+// Chats routes :
+router.get("/chats/:groupId", ChatsIndex);
 
 export default router;
