@@ -89,7 +89,7 @@ export default function ChatInterface({
       </div>
 
       {/* Send Message : */}
-      <form action="">
+      <form onSubmit={handleSubmit} className="mt-2 flex items-center">
         <Input
           type="text"
           placeholder="Type a message..."
