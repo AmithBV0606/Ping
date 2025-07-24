@@ -2,6 +2,7 @@
 
 import { Server } from "socket.io";
 import { CustomSocket } from "./types";
+import prismaClient from "./config/db.config";
 
 export function setupSocket(io: Server) {
   // Middlewares :
@@ -24,12 +25,17 @@ export function setupSocket(io: Server) {
     socket.join(socket.room!);
 
     // To receive the data coming from the client side :
-    socket.on("message", (data) => {
+    socket.on("message", async (data) => {
       console.log("Server side message : ", data);
+
+      // Store the messages in DB :
+      await prismaClient.chats.create({
+        data: data,
+      });
 
       // socket.broadcast.emit("message", data);
 
-      io.to(socket.room!).emit("message", data); // This prevents users from broadcasting the messages to all the group, and sends the message only to the group/room the user is connected to.
+      socket.to(socket.room!).emit("message", data); // This prevents users from broadcasting the messages to all the group, and sends the message only to the group/room the user is connected to.
     });
 
     // _______________________________________________________________________________________________
