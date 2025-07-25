@@ -6,7 +6,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import { setupSocket } from "./socket";
 import { createAdapter } from "@socket.io/redis-streams-adapter";
-import redis from "./config/redis.config";
+import redisClient from "./config/redis.config";
 import { instrument } from "@socket.io/admin-ui";
 
 dotenv.config();
@@ -34,7 +34,7 @@ const io = new Server(server, {
     origin: ["http://localhost:3000", "https://admin.socket.io"],
     credentials: true,
   },
-  adapter: createAdapter(redis),
+  adapter: createAdapter(redisClient),
 });
 
 // Admin UI :
