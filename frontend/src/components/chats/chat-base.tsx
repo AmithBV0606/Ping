@@ -42,23 +42,18 @@ export default function ChatBase({
 
       <SidebarInset>
         {/* Chat header : */}
-        <header className="flex h-14 shrink-0 items-center gap-2 px-4">
+        <header className="flex h-12 shrink-0 items-center gap-2 px-4">
           <SidebarTrigger className="-ml-1 cursor-pointer" />
 
           <Separator
             orientation="vertical"
             className="mr-2 data-[orientation=vertical]:h-4"
           />
-
-          <div className="mr-1 text-2xl font-extrabold bg-gradient-to-r from-pink-400 to-purple-600 text-transparent bg-clip-text">
-            {/* <CreateChat user={session?.user} /> */}
-            {group.title}
-          </div>
         </header>
 
         {/* Chat UI : */}
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="bg-muted/60 min-h-[100vh] flex-1 rounded-xl md:min-h-min">
+          <div className="bg-muted/60 flex-1 rounded-xl md:min-h-min">
             <ChatInterface group={group} chatUser={chatUser} oldMessages={oldMessages} />
           </div>
         </div>
