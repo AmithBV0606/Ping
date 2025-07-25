@@ -119,10 +119,10 @@ export default function TechnologySection() {
 
           <TechnologyCard
             area="md:col-span-2 xl:col-span-3"
-            name="Apache Kafka"
-            description="Distributed event streaming platform for high-performance data pipelines and real-time analytics."
+            name="Upstash Qstash"
+            description="QStash is a serverless messaging and scheduling solution. It fits easily into your existing workflow and allows you to build reliable systems without managing infrastructure."
             icon={<MessageSquare className="h-5 w-5" />}
-            category="Messaging"
+            category="Messaging Queue"
             size="medium"
           />
 
