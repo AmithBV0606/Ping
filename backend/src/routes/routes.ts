@@ -29,6 +29,6 @@ router.post("/chat-group-users", StoreUsers);
 
 // Chats routes :
 router.get("/chats/:groupId", ChatsIndex);
-router.post("/chats", express.text({ type: "*/*" }), StoreChats);
+router.post("/chats", StoreChats);
 
 export default router;

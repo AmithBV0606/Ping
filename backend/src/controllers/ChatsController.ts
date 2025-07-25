@@ -26,21 +26,27 @@ export async function ChatsIndex(request: Request, response: Response) {
 export async function StoreChats(request: Request, response: Response) {
   try {
     const signature = request.header("Upstash-Signature");
-    const body = request.body;
+    let body = request.body; // type = object
 
     if (!signature) {
       return response.status(400).send("Missing Upstash Signature");
     }
 
+    if (typeof body === "object") {
+      body = JSON.stringify(body);
+    }
+
+    // Before passing the body for signature verification, it needs to be converted to string :
     const isValid = await receiver.verify({
       signature,
-      body,
+      body: body,
     });
 
     if (!isValid) {
       return response.status(401).send("Invalid Signature");
     }
 
+    // To be able to store the chats in our DB, the body needs to be converted back to object :
     const data = JSON.parse(body);
 
     const chat = await prismaClient.chats.create({
@@ -49,7 +55,7 @@ export async function StoreChats(request: Request, response: Response) {
 
     return response.json({
       message: "Stored the chat successfully!",
-      data: data,
+      data: chat,
     });
   } catch (error) {
     return response
