@@ -3,10 +3,12 @@ import React from "react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/button";
 import CTAButton from "@/components/home-page/cta-button";
-import { FlipText } from "@/components/magicui/flip-text";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function HeroSection() {
+  const router = useRouter();
+
   return (
     <main className="relative" id="home">
       {/* Background Effects */}
@@ -18,7 +20,10 @@ export default function HeroSection() {
       <div className="relative z-10 px-6 py-24">
         <div className="max-w-7xl mx-auto text-center">
           {/* Explore Banner */}
-          <Button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 mb-10">
+          <Button
+            className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 mb-16 mt-14"
+            onClick={() => router.push("/sign-up")}
+          >
             <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
 
             <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-6">
@@ -35,25 +40,21 @@ export default function HeroSection() {
 
           {/* Main Heading */}
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-400">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               The modern{" "}
-              {/* <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"> */}
-              <FlipText
-                className="text-4xl font-extrabold tracking-tight md:text-8xl md:leading-[7rem] bg-[linear-gradient(to_top,_#5f72bd_0%,_#9b23ea_100%)] text-transparent bg-clip-text inline-block"
-                duration={0.6}
-              >
-                Chatting Platform.
-              </FlipText>
-              {/* </span> */}
+              <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                chatting platform
+              </span>
+              .
             </h1>
 
-            <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-12">
+            <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-8">
               Ping powers realtime conversations that scales.
             </h2>
           </div>
 
           {/* Description */}
-          <div className="mb-20">
+          <div className="mb-30">
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Ping is fast, reliable and a platform for collaboration
               <br />
