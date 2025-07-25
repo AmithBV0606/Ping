@@ -1,15 +1,11 @@
-import { Redis as IoRedis } from "ioredis";
-import { Redis as UpstashRedis } from "@upstash/redis";
+import { Redis } from "ioredis";
 
-let redisClient: IoRedis | UpstashRedis;
+let redisClient: Redis;
 
 if (process.env.NODE_ENV === "production") {
-  redisClient = new UpstashRedis({
-    url: process.env.UPSTASH_REDIS_REST_URL,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN,
-  });
+  redisClient = new Redis(process.env.REDIS_URL!);
 } else {
-  redisClient = new IoRedis({
+  redisClient = new Redis({
     host: "localhost",
     port: 6379,
     password: "mypassword",
