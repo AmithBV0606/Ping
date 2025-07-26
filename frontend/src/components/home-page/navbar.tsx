@@ -16,7 +16,7 @@ export default function Navbar() {
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           <Link
             href="#home"
             className="px-4 py-2 rounded-3xl text-gray-300 hover:text-white hover:bg-[#1B1F22] transition-colors"
