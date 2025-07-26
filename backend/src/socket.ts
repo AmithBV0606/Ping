@@ -36,7 +36,7 @@ export function setupSocket(io: Server) {
       // Send the message to the queue :
       const queue = await qstashClient.publishJSON({
         // url: "http://localhost:4000/api/chats",
-        url: "https://c0ef80a2e8c3.ngrok-free.app/api/chats",
+        url: "https://ping-f5ke.vercel.app/api/chats",
         method: "POST",
         body: data,
       });
