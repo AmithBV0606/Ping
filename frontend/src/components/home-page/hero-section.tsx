@@ -45,11 +45,10 @@ export default function HeroSection() {
               <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 chatting platform
               </span>
-              .
             </h1>
 
-            <h2 className="text-4xl md:text-5xl font-light text-gray-400 mb-8">
-              Ping powers realtime conversations that scales.
+            <h2 className="text-4xl md:text-4xl font-light text-gray-400 mb-8">
+              Ping powers realtime conversations that scales
             </h2>
           </div>
 
