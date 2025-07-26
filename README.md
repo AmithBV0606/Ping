@@ -1,6 +1,6 @@
 # 🚀 Ping
 
-<img src="./frontend/public/Demo-1.png" />
+https://github.com/user-attachments/assets/5b47edbb-742d-4621-9285-fdeb37b41980
 
 Ping is a scalable real-time chat application built with a modern full-stack tech stack. It supports efficient communication between users using WebSockets and a Redis-backed message queue system.
 
