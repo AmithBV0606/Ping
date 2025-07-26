@@ -18,12 +18,12 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export default function TechnologySection() {
   return (
-    <section className="min-h-screen bg-black py-20 px-4 -mt-20" id="technologies">
+    <section className="min-h-screen bg-black py-20 px-4 -mt-14" id="technologies">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-light mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              <span className="text-5xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 Technology Stack
               </span>
             </h1>
