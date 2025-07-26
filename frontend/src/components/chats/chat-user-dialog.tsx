@@ -15,6 +15,7 @@ import axios from "axios";
 import { CHAT_GROUP_USERS_URL } from "@/lib/apiEndPoints";
 import { useParams } from "next/navigation";
 import { toast } from "sonner";
+import { ClearCache } from "@/actions/clear-cache";
 
 export default function ChatUserDialog({
   open,
@@ -48,6 +49,8 @@ export default function ChatUserDialog({
           params["id"] as string,
           JSON.stringify(data?.data)
         );
+
+        ClearCache("users")
       } catch (error) {
         toast.error("Something went wrong. Please try again!");
       }

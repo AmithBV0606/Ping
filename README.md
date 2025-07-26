@@ -182,6 +182,7 @@ NOTE : For Authorized JavaScript origins and Authorized redirect URIs use the li
 ### 🧠 Future Improvements :
 
 - Add the profile page for the user.
+- Users will be able to send Images and Videos.
 
 ##
 

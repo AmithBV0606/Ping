@@ -45,6 +45,10 @@ export async function fetchChatGroup(id: string) {
 export async function fetchChatGroupUsers(id: string) {
   const res = await fetch(`${CHAT_GROUP_USERS_URL}?group_id=${id}`, {
     cache: "no-cache",
+    next: {
+      revalidate: 0,
+      tags: ["users"],
+    },
   });
 
   if (!res.ok) {
