@@ -170,6 +170,15 @@ NOTE : For Authorized JavaScript origins and Authorized redirect URIs use the li
 
 ##
 
+### 📦 Deployment
+
+- Frontend is deployed on Vercel.
+- Backend is hosted on Render.
+- Supabase handles the Postgres database.
+- Redis and QStash are hosted on Upstash.
+
+##
+
 ### 🧠 Future Improvements :
 
 - Add the profile page for the user.
