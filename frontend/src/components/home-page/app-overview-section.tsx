@@ -5,7 +5,7 @@ import { WobbleCard } from "../ui/wobble-card";
 
 export default function AppOverviewSection() {
   return (
-    <div id="overview" className="mt-20 mb-20">
+    <div id="overview" className="md:mt-48 mb-20">
       {/* Section Heading : */}
       <div className="w-full flex justify-center items-center mb-6">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">

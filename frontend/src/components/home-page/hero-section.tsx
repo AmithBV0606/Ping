@@ -17,7 +17,7 @@ export default function HeroSection() {
         <Spotlight className="right-0 top-0" flip />
       </div>
 
-      <div className="relative z-10 px-6 py-24 mb-10">
+      <div className="relative z-10 px-6 py-14 mb-10">
         <div className="max-w-7xl mx-auto text-center mb-10">
           {/* Explore Banner */}
           <Button
