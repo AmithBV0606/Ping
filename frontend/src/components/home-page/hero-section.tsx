@@ -17,8 +17,8 @@ export default function HeroSection() {
         <Spotlight className="right-0 top-0" flip />
       </div>
 
-      <div className="relative z-10 px-6 py-24">
-        <div className="max-w-7xl mx-auto text-center">
+      <div className="relative z-10 px-6 py-24 mb-10">
+        <div className="max-w-7xl mx-auto text-center mb-10">
           {/* Explore Banner */}
           <Button
             className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 mb-16 mt-14"
@@ -54,7 +54,7 @@ export default function HeroSection() {
           </div>
 
           {/* Description */}
-          <div className="mb-30">
+          <div className="mb-20">
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Ping is fast, reliable and a platform for collaboration
               <br />
