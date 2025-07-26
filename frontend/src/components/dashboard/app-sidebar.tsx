@@ -20,15 +20,7 @@ import { CustomSession } from "@/types";
 const data = {
   navMain: [
     {
-      title: "All Chats",
-      url: "#",
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-    },
-    {
-      title: "API Reference",
+      title: "Rooms / Chat-Groups",
       url: "#",
     },
   ],
